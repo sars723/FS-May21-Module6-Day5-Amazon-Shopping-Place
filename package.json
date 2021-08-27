@@ -1,0 +1,33 @@
+{
+  "name": "FS-May21-Module6-Day5-Amazon-Shopping-Place",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "setup": "node src/scripts/import",
+    "start": "nodemon -r dotenv/config src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sars723/FS-May21-Module6-Day5-Amazon-Shopping-Place.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sars723/FS-May21-Module6-Day5-Amazon-Shopping-Place/issues"
+  },
+  "homepage": "https://github.com/sars723/FS-May21-Module6-Day5-Amazon-Shopping-Place#readme",
+  "devDependencies": {
+    "dotenv": "^10.0.0",
+    "nodemon": "^2.0.12"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "pg": "^8.7.1",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.6.5"
+  }
+}
