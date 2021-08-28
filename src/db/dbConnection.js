@@ -11,6 +11,7 @@ const sequelize = new Sequelize(PGDATABASE, PGUSERNAME, PGPASSWORD, {
 export const syncSequelize=async()=>{
     try {
         await sequelize.authenticate()
+        await sequelize.sync({alter:true})
         console.log("connection has been established successfully")
     } catch (error) {
        console.log("Server is crashed due to",error) 
