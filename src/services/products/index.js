@@ -2,6 +2,9 @@ import express from 'express'
 import db from '../../db/models/association-models.js'
 import Review from '../../db/models/Review.js'
 import User from '../../db/models/User.js'
+import s from 'sequelize'
+
+const {Op}=s
 const {Category}=db
 const Product=db.Product
 
@@ -9,7 +12,11 @@ const router=express.Router()
 
 router.get("/",async(req,res,next)=>{
     try {
-        const data=await Product.findAll({include:[{model:Category},{model:Review,include:{model:User}}]})
+        const data=await Product.findAll({limit:1,offset:2,
+            where:req.query.name
+                ?{name:{[Op.iLike]:`%${req.query.name}%`}}
+                :{},
+            include:[{model:Category,where:req.query.Category?{name:{[Op.iLike]:`%${req.query.Category}%`}}:{}},{model:Review,include:{model:User}}]})
         res.send(data)
     } catch (error) {
         console.log(error)
